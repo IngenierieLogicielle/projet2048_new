@@ -108,8 +108,8 @@ public class Grid
 	
 	public void displayGrid()
 	{
-		System.out.println(cases.length);
-		System.out.println(cases[cases.length-1].length);
+		//System.out.println(cases.length);
+		//System.out.println(cases[cases.length-1].length);
 		
 		for (int y=0; y<cases.length; y++)
 		{
