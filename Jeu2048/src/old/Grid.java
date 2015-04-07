@@ -296,6 +296,15 @@ public class Grid
     
     public boolean helpForAll()
     {
-        return false;
+        boolean updated = false;
+        boolean value2048 = false;
+        
+        while (!value2048)
+        {
+            helpForOne();
+            break;
+        }
+        
+        return updated;
     }
 }
