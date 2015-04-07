@@ -149,7 +149,7 @@ public class Grid
         return false;
     }
 	
-    public void moveDown()
+    public boolean moveDown()
     {
 	/*for (int y=cases.length-1; y>1; y--)
 	{
@@ -160,7 +160,8 @@ public class Grid
 	}*/
 		
 	boolean update;
-		
+	boolean action = false;
+        
 	do
 	{
             update = false;
@@ -175,17 +176,21 @@ public class Grid
                     do
                     {
                         merge = merge(cases[y-1][x],cases[y][x]);
-			move = move(cases[y-1][x],cases[y][x]);
+			move = move(cases[y-1][x],cases[y][x]); 
 			update = (update || merge || move);
+                        if(!action && update)
+                        {
+                          action = update;  
+                        }
                     } while (merge || move);
 					
-                    // while (loop)
-                    // {
-                    // loop = merge(cases[y-1][x],cases[y][x]);
-                    // }
 		}
             }
-	} while (update);
+	} while (update); //tant qu'il peut faire encore une action
+        
+        //on aura pu faire au moins un mouvement
+        return action;
+        
     }
 	
     public void moveUp()
@@ -289,9 +294,17 @@ public class Grid
 	} while (update);
     }
     
+    /**
+     * L'IA joue le prochain coup sur la grille.
+     * 
+     * @return Retourne si l'opération a pu être effectuée
+     */
     public boolean helpForOne()
     {
-        return false;
+        boolean update = false;
+        // random pour utiliser des actions différentes, entre 1 et 4
+        // switchcase 1 cas = 1 mouvement + récupération du retour (englobé dans un while tant que update = false)
+        return update;
     }
     
     public boolean helpForAll()
