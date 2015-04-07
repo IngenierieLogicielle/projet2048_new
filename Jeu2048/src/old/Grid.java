@@ -293,4 +293,9 @@ public class Grid
     {
         return false;
     }
+    
+    public boolean helpForAll()
+    {
+        return false;
+    }
 }
