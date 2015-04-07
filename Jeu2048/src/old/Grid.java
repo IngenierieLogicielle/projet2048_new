@@ -296,15 +296,15 @@ public class Grid
     
     public boolean helpForAll()
     {
-        boolean updated = false;
-        boolean value2048 = false;
+        boolean action = false;
+        //boolean value2048 = false;
         
-        while (!value2048)
+        // Faire [*] tant qu'on a pu effectuer une action le coup précédent //et tant qu'on a pas rencontré la valeur 2048 
+        do
         {
-            helpForOne();
-            break;
-        }
+            action = helpForOne();
+        } while (action /*&& !value2048*/);
         
-        return updated;
+        return action;
     }
 }

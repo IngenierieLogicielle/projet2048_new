@@ -77,9 +77,11 @@ public class Game
                     break;
                 case "7":
                     grid.helpForOne();
+                    grid.displayGrid();
                     break;
                 case "9":
                     grid.helpForAll();
+                    grid.displayGrid();
                     break;
                 default:
                     end = true;
