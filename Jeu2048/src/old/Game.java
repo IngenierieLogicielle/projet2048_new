@@ -75,6 +75,12 @@ public class Game
                 case "0":
                     end = true;
                     break;
+                case "7":
+                    grid.helpForOne();
+                    break;
+                case "9":
+                    grid.helpForAll();
+                    break;
                 default:
                     end = true;
                     break;

@@ -288,4 +288,9 @@ public class Grid
             }
 	} while (update);
     }
+    
+    public boolean helpForOne()
+    {
+        return false;
+    }
 }
