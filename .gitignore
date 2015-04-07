@@ -30,3 +30,5 @@ nb-configuration.xml
 
 *.properties
 *.properties
+Jeu2048/nbproject/project.properties
+*.properties
