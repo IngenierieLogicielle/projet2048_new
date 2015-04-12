@@ -40,6 +40,8 @@ public class Game
             System.out.println("8 - haut");
             System.out.println("4 - gauche");
             System.out.println("6 - droite");
+            System.out.println("7 - 1 coup de l'IA");
+            System.out.println("9 - Fin de la partie par l'IA");
             System.out.println("Autres commandes :");
             System.out.println("5 - nouvelle grille");
             System.out.println("0 - fin");
@@ -77,10 +79,12 @@ public class Game
                     break;
                 case "7":
                     grid.helpForOne();
+                    grid.addCase();
                     grid.displayGrid();
                     break;
                 case "9":
                     grid.helpForAll();
+                    grid.addCase();
                     grid.displayGrid();
                     break;
                 default:

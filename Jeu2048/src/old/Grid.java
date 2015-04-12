@@ -302,10 +302,32 @@ public class Grid
     public boolean helpForOne()
     {
         boolean update = false;
-        // random pour utiliser des actions différentes, entre 1 et 4
+        int rand = (int)( Math.random()*( 4 - 1 + 1 ) ) + 1;       
         // switchcase 1 cas = 1 mouvement + récupération du retour (englobé dans un while tant que update = false)
+        
+        //le rand permet de rendre aléatoire la direction choisie par l'IA pour un coup.
+        switch (rand)
+        {
+            
+            case 1:
+            this.moveUp();
+            break;
+          case 2:
+            this.moveDown();
+            break;
+          case 3:
+            this.moveLeft();
+            break;
+          case 4:
+            this.moveRight();
+            break;
+          default:
+            this.moveRight();
+        }
         return update;
     }
+    
+    
     
     public boolean helpForAll()
     {
