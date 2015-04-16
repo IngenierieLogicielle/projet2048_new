@@ -22,44 +22,21 @@ public class Game
 	// Déclaration des variables utiles
         // --------------------------------
         
-	boolean end = false;
+        boolean end = false;
 	String saisie;
-	//int num;
+        //int num;
 	Scanner s = new Scanner(System.in);
 	Grid grid = new Grid(4,4);
-	
 	grid.initGrid();
 	grid.displayGrid();
 	
-	/* ----- */
-	
-	/*
-        System.out.println("---");
-	
-	Scanner sc = new Scanner(System.in);
-	String str;
-	
-	do
-	{
-		System.out.print(">> ");
-		str = sc.nextLine();
-		//grid.helpForOne();
-		grid.helpForAll();
-		grid.displayGrid();
-	} while (str.compareTo("r")==0);
-	
-	System.out.println("---");
-	
-	grid.displayGrid();
-        */
+        grid.helpForOne();
         
-	/* ----- */
-		
         // ----------------
         // Lancement du jeu : 
         // répétition de la demande d'une touche et de l'éecution de l'action tant qu'on ne souhaite pas quitter
         // ----------------
-        System.out.println("+++"); //System.exit(666);
+        /*System.out.println("+++"); //System.exit(666);
 	while (!end)
 	{
             System.out.println("Prochain deplacement : ");
@@ -73,7 +50,7 @@ public class Game
             System.out.println("5 - nouvelle grille");
             System.out.println("0 - fin");
 
-            //System.out.println(">> ");
+            System.out.println(">> ");
             System.out.println(">> ");
             saisie = s.nextLine();
             //num = parseInt(s.nextLine());
@@ -85,28 +62,28 @@ public class Game
                 //case 2:
                     grid.moveDown();
                     grid.addCase();
-                    System.out.println("BAS");
+                    System.out.println("⇓");
                     grid.displayGrid();
                     break;
                 case "8":
                 //case 8:
                     grid.moveUp();
                     grid.addCase();
-                    System.out.println("HAUT");
+                    System.out.println("⇑");
                     grid.displayGrid();
                     break;
 		case "4":
 		//case 4:
                     grid.moveLeft();
                     grid.addCase();
-                    System.out.println("GAUCHE");
+                    System.out.println("⇐");
                     grid.displayGrid();
                     break;
                 case "6":
                 //case 6:
                     grid.moveRight();
                     grid.addCase();
-                    System.out.println("DROITE");
+                    System.out.println("⇒");
                     grid.displayGrid();
                     break;
                 case "5":
@@ -125,17 +102,16 @@ public class Game
                     break;
                 case "9":
                 //case 9:
-                    //System.out.println("---");
+                    System.out.println("---");
                     grid.helpForAll();
-                    //System.out.println("...");
+                    System.out.println("...");
                     grid.displayGrid();
-                    end = true;
+                    //end = true;
                     break;
                 default:
                     end = true;
                     break;
             }
-	}
-        System.out.println("+++");
+	}*/
     }
 }

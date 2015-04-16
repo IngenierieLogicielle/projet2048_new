@@ -190,8 +190,8 @@ public class Grid
                         {
                           action = update;  
                         }
-                    //} while (update);
-                    } while (merge || move);
+                    } while (update);
+                    //} while (merge || move);
 		}
             }
 	} while (update);
@@ -343,96 +343,55 @@ public class Grid
         
         Random r = new Random();
         int rand;
-		
-		// *** DEBUG ***
-        System.out.println("A");
         
-		// Tant qu'aucune modification n'a été faite, faire {...}
+        // Tant qu'aucune modification n'a été faite, faire {...}
         while (!update && !all)
         {
-			// *** DEBUG ***
-			System.out.println("B | (!)UPDATE : "+update+" | (!)ALL : "+all);
-            
-			// Définition d'une valeur aléatoire pour la direction de l'IA
+            // Définition d'une valeur aléatoire pour la direction de l'IA
             //int rand = (int)( Math.random()*( 4 - 1 + 1 ) ) + 1; 
             do
             {
-				// *** DEBUG ***
-				// System.out.println("C");
-                
-				// Génération d'un entier aléatoire compris dans [0,4[ puis incrémentation pour obtenir [1,5[ (soit [1,4])
+                // Génération d'un entier aléatoire compris dans [0,4[ puis incrémentation pour obtenir [1,5[ (soit [1,4])
                 rand = r.nextInt(4) + 1;
-				
+
                 // Booléen à vrai si toutes les valeurs sont utilisées
                 all = (val1 && val2 && val3 && val4);
 
                 // Booléen à vrai s'il existe un conflit (exemple : aléatoire tiré à 1 mais valeur 1 déjà utilisée) et qu'il reste des nombres non utilisés
                 retry = !((rand == 1 && !val1) | (rand == 2 && !val2) | (rand == 3 && !val3) | (rand == 4 && !val4) | all);
-				
-				// *** DEBUG ***
-				System.out.println("C | rand : "+rand+" | val : "+val1+" _ "+val2+" _ "+val3+" _ "+val4+" | all : "+all+" | RETRY : "+retry);
+
+                // Actualisation de la liste des valeurs utiliséesS
+                if (rand == 1) val1 = true;
+                if (rand == 2) val2 = true;
+                if (rand == 3) val3 = true;
+                if (rand == 4) val4 = true;
             } while (retry);
 
-			// Actualisation de la liste des valeurs utiliséesS
-			//if (rand == 1) val1 = true;
-			//if (rand == 2) val2 = true;
-			//if (rand == 3) val3 = true;
-			//if (rand == 4) val4 = true;
-			
-			// *** DEBUG ***
-			System.out.println("D | rand : "+rand);
-			
             // Choix aléatoire de la direction de l'IA et mouvement dans cette direction
             switch (rand)
             {
                 case 1:
-					// *** DEBUG ***
-                    System.out.println("E"+rand+" | val"+rand+" : "+val1);
-					val1 = true;
+                    val1 = true;
                     update = this.moveUp();
-					// *** DEBUG ***
-					System.out.println("F"+rand+" | val"+rand+" : "+val1);
                     break;
                 case 2:
-					// *** DEBUG ***
-					System.out.println("E"+rand+" | val"+rand+" : "+val2);
                     val2 = true;
                     update = this.moveDown();
-					// *** DEBUG ***
-					System.out.println("F"+rand+" | val"+rand+" : "+val2);
                     break;
                 case 3:
-					// *** DEBUG ***
-					System.out.println("E"+rand+" | val"+rand+" : "+val3);
                     val3 = true;
                     update = this.moveLeft();
-					// *** DEBUG ***
-					System.out.println("F"+rand+" | val"+rand+" : "+val3);
                     break;
                 case 4:
-					// *** DEBUG ***
-					System.out.println("E"+rand+" | val"+rand+" : "+val4);
                     val4 = true;
                     update = this.moveRight();
-					// *** DEBUG ***
-					System.out.println("F"+rand+" | val"+rand+" : "+val4);
                     break;
                 default:
-					// *** DEBUG ***
-					System.out.println("E"+rand+" | val"+rand+" *** BUG ***");
-					// *** DEBUG ***
-					System.out.println("F"+rand+" | val"+rand+" *** BUG ***");
                     break;
             }
-			
-			// *** DEBUG ***
-			System.out.println("G | (!)UPDATE : "+update+" | (!)ALL : "+all);
         }
-		
-		// *** DEBUG ***
-		System.out.println("H");
         
-		// Ajout d'une case à la grille
+        // Ajout d'une case à la grille
         this.addCase();
         
         // Notification de la (non-)modification de la grille
@@ -450,8 +409,8 @@ public class Grid
         do
         {
             action = helpForOne();
-            //System.out.println(i++);
-            //System.out.println("Action : "+action);
+            System.out.println(i++);
+            System.out.println("Action : "+action);
             this.displayGrid();
         } while (action);
         //} while (action && !value2048);
