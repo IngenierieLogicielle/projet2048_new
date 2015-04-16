@@ -48,19 +48,13 @@ public class Game
             System.out.println("5 - nouvelle grille");
             System.out.println("0 - fin");
 
+            System.out.println(">> ");
             saisie = s.nextLine();
             //num = parseInt(s.nextLine());
             
             switch(saisie)
             //switch(num)
             {
-                case "9":
-                //case 9:
-                    System.out.println("---");
-                    end = true;
-                    grid.helpForAll();
-                    grid.displayGrid();
-                    break;
             	case "2":
                 //case 2:
                     grid.moveDown();
@@ -98,6 +92,14 @@ public class Game
                 //case 7:
                     grid.helpForOne();
                     grid.displayGrid();
+                    break;
+                case "9":
+                //case 9:
+                    System.out.println("---");
+                    grid.helpForAll();
+                    System.out.println("...");
+                    grid.displayGrid();
+                    //end = true;
                     break;
                 default:
                     end = true;

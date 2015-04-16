@@ -369,9 +369,10 @@ public class Grid
             action = helpForOne();
             System.out.println(i++);
             System.out.println("Action : "+action);
-        } while (true);
+            this.displayGrid();
+        } while (action);
         //} while (action && !value2048);
         
-        //return action;
+        return action;
     }
 }
