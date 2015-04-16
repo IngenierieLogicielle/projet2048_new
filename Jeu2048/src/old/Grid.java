@@ -151,51 +151,57 @@ public class Grid
 	
     public boolean moveDown()
     {
-	/*for (int y=cases.length-1; y>1; y--)
-	{
-            for (int x=0; x<cases[y].length; x++)
-            {
-                merge(cases[y-1][x],cases[y][x]);
-            }
-	}*/
-		
-	boolean update;
-	boolean action = false;
+	// Une mise à jour de l'état d'une case C a été effectuée (Oui/Non)
+        boolean update;
+	// Au moins une action a pu être effectuée (Oui/Non)
+        boolean action = false;
         
+        // Faire {...} tant que la grille a subit une modification lors du tour précédent
 	do
 	{
+            // La grille n'a pas subit de modification lors de ce tour
             update = false;
-			
+		
+            // Passage en revue des ordonnées (de bas en haut pour un movement vers le bas)
             for (int y=cases.length-1; y>0; y--)
             {
+                // Passage en revue des abscisses (ordre indifférent pour un mouvement vertical)
                 for (int x=0; x<cases[y].length; x++)
 		{
+                    // Une fusion a pu être effectuée
                     boolean merge;
+                    // Un mouvement a pu être effectué
                     boolean move;
-					
+                    
+                    // Faire {...} tant que la case a subit une modification lors du tour précédent
                     do
                     {
+                        // Appel de la méthode permettant de déplacer la case précédente vers la case actuelle (fusion)
                         merge = merge(cases[y-1][x],cases[y][x]);
-			move = move(cases[y-1][x],cases[y][x]); 
-			update = (update || merge || move);
+			// Appel de la méthode permettant de déplacer la case précédente vers la case actuelle (vide)
+                        move = move(cases[y-1][x],cases[y][x]); 
+			// Mise à jour de l'état du booléen de modification (soit il était déjà à vrai et le reste, soit il passe à vrai car on a pu effectuer une modification)
+                        update = (update || merge || move);
+                        
+                        // Si on a pu effectuer une modification, alors on précise via le booléen d'action
                         if(!action && update)
                         {
                           action = update;  
                         }
-                    } while (merge || move);
-					
+                    } while (update);
+                    //} while (merge || move);
 		}
             }
-	} while (update); //tant qu'il peut faire encore une action
+	} while (update);
         
-        //on aura pu faire au moins un mouvement
         return action;
         
     }
 	
-    public void moveUp()
+    public boolean moveUp()
     {
 	boolean update;
+	boolean action = false;
 	
 	do
 	{
@@ -213,17 +219,24 @@ public class Grid
 			merge = merge(cases[y+1][x],cases[y][x]);
 			move = move(cases[y+1][x],cases[y][x]);
 			update = (update || merge || move);
+                        if(!action && update)
+                        {
+                          action = update;  
+                        }
                     } while (merge || move);
 					
                     // merge(cases[y-1][x],cases[y][x]);
 		}
             }
         } while (update);
+        
+        return action;
     }
 	
-    public void moveLeft()
+    public boolean moveLeft()
     {
 	boolean update;
+	boolean action = false;
 		
 	do
 	{
@@ -248,17 +261,24 @@ public class Grid
                         merge = merge(cases[x][y+1],cases[x][y]);
                         move = move(cases[x][y+1],cases[x][y]);
 			update = (update || merge || move);
+                        if(!action && update)
+                        {
+                          action = update;  
+                        }
                     } while (merge || move);
 					
                     // merge(cases[y-1][x],cases[y][x]);
                 }
             }
         } while (update);
+        
+        return action;
     }
 	
-    public void moveRight()
+    public boolean moveRight()
     {
         boolean update;
+	boolean action = false;
 		
 	do
 	{
@@ -283,6 +303,10 @@ public class Grid
                         merge = merge(cases[x][y-1],cases[x][y]);
                         move = move(cases[x][y-1],cases[x][y]);
                         update = (update || merge || move);
+                        if(!action && update)
+                        {
+                          action = update;  
+                        }
                     } while (merge || move);
 					
                     // while (loop)
@@ -292,6 +316,8 @@ public class Grid
 		}
             }
 	} while (update);
+        
+        return action;
     }
     
     /**
@@ -303,27 +329,28 @@ public class Grid
     {
         boolean update = false;
         int rand = (int)( Math.random()*( 4 - 1 + 1 ) ) + 1;       
-        // switchcase 1 cas = 1 mouvement + récupération du retour (englobé dans un while tant que update = false)
         
         //le rand permet de rendre aléatoire la direction choisie par l'IA pour un coup.
         switch (rand)
         {
-            
             case 1:
-            this.moveUp();
-            break;
-          case 2:
-            this.moveDown();
-            break;
-          case 3:
-            this.moveLeft();
-            break;
-          case 4:
-            this.moveRight();
-            break;
-          default:
-            this.moveRight();
+                update = this.moveUp();
+                break;
+            case 2:
+                update = this.moveDown();
+                break;
+            case 3:
+                update = this.moveLeft();
+                break;
+            case 4:
+                update = this.moveRight();
+                break;
+            default:
+                break;
         }
+        
+        this.addCase();
+        
         return update;
     }
     
@@ -334,11 +361,16 @@ public class Grid
         boolean action = false;
         //boolean value2048 = false;
         
-        // Faire [*] tant qu'on a pu effectuer une action le coup précédent //et tant qu'on a pas rencontré la valeur 2048 
+        int i = 0;
+        
+        // Faire {...} tant qu'on a pu effectuer une action le coup précédent //et tant qu'on a pas rencontré la valeur 2048 
         do
         {
             action = helpForOne();
-        } while (action /*&& !value2048*/);
+            System.out.println(i++);
+            System.out.println("Action : "+action);
+        } while (action);
+        //} while (action && !value2048);
         
         return action;
     }
