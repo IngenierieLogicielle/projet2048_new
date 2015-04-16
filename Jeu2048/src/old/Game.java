@@ -1,5 +1,6 @@
 package old;
 
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 
 /**
@@ -23,6 +24,7 @@ public class Game
         
         boolean end = false;
 	String saisie;
+        //int num;
 	Scanner s = new Scanner(System.in);
 	Grid grid = new Grid(4,4);
 	grid.initGrid();
@@ -32,7 +34,7 @@ public class Game
         // Lancement du jeu : 
         // répétition de la demande d'une touche et de l'éecution de l'action tant qu'on ne souhaite pas quitter
         // ----------------
-        
+        System.out.println("+++"); //System.exit(666);
 	while (!end)
 	{
             System.out.println("Prochain deplacement : ");
@@ -47,42 +49,54 @@ public class Game
             System.out.println("0 - fin");
 
             saisie = s.nextLine();
-			
+            //num = parseInt(s.nextLine());
+            
             switch(saisie)
+            //switch(num)
             {
+                case "9":
+                //case 9:
+                    System.out.println("---");
+                    end = true;
+                    grid.helpForAll();
+                    grid.displayGrid();
+                    break;
             	case "2":
+                //case 2:
                     grid.moveDown();
                     grid.addCase();
                     grid.displayGrid();
                     break;
                 case "8":
+                //case 8:
                     grid.moveUp();
                     grid.addCase();
                     grid.displayGrid();
                     break;
 		case "4":
+		//case 4:
                     grid.moveLeft();
                     grid.addCase();
                     grid.displayGrid();
                     break;
                 case "6":
+                //case 6:
                     grid.moveRight();
                     grid.addCase();
                     grid.displayGrid();
                     break;
                 case "5":
+                //case 5:
                     grid.initGrid();
                     grid.displayGrid();
                     break;
                 case "0":
+                //case 0:
                     end = true;
                     break;
                 case "7":
+                //case 7:
                     grid.helpForOne();
-                    grid.displayGrid();
-                    break;
-                case "9":
-                    grid.helpForAll();
                     grid.displayGrid();
                     break;
                 default:
