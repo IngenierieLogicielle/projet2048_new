@@ -79,12 +79,10 @@ public class Game
                     break;
                 case "7":
                     grid.helpForOne();
-                    grid.addCase();
                     grid.displayGrid();
                     break;
                 case "9":
                     grid.helpForAll();
-                    grid.addCase();
                     grid.displayGrid();
                     break;
                 default:
