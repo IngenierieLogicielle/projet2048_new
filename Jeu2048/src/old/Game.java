@@ -49,6 +49,7 @@ public class Game
             System.out.println("0 - fin");
 
             System.out.println(">> ");
+            System.out.println(">> ");
             saisie = s.nextLine();
             //num = parseInt(s.nextLine());
             
@@ -59,24 +60,28 @@ public class Game
                 //case 2:
                     grid.moveDown();
                     grid.addCase();
+                    System.out.println("⇓");
                     grid.displayGrid();
                     break;
                 case "8":
                 //case 8:
                     grid.moveUp();
                     grid.addCase();
+                    System.out.println("⇑");
                     grid.displayGrid();
                     break;
 		case "4":
 		//case 4:
                     grid.moveLeft();
                     grid.addCase();
+                    System.out.println("⇐");
                     grid.displayGrid();
                     break;
                 case "6":
                 //case 6:
                     grid.moveRight();
                     grid.addCase();
+                    System.out.println("⇒");
                     grid.displayGrid();
                     break;
                 case "5":

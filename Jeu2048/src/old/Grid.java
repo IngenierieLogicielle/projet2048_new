@@ -1,5 +1,7 @@
 package old;
 
+import java.util.Random;
+
 /**
  * Classe Grid,
  * Représente la grille de jeu.
@@ -327,34 +329,74 @@ public class Grid
      */
     public boolean helpForOne()
     {
+        // Booléen de modification de la grille
         boolean update = false;
-        int rand = (int)( Math.random()*( 4 - 1 + 1 ) ) + 1;       
         
-        //le rand permet de rendre aléatoire la direction choisie par l'IA pour un coup.
-        switch (rand)
+        // Valeurs déjà utilisées
+        boolean val1 = false;
+        boolean val2 = false;
+        boolean val3 = false;
+        boolean val4 = false;
+        
+        boolean retry;
+        boolean all = (val1 && val2 && val3 && val4);
+        
+        Random r = new Random();
+        int rand;
+        
+        // Tant qu'aucune modification n'a été faite, faire {...}
+        while (!update && !all)
         {
-            case 1:
-                update = this.moveUp();
-                break;
-            case 2:
-                update = this.moveDown();
-                break;
-            case 3:
-                update = this.moveLeft();
-                break;
-            case 4:
-                update = this.moveRight();
-                break;
-            default:
-                break;
+            // Définition d'une valeur aléatoire pour la direction de l'IA
+            //int rand = (int)( Math.random()*( 4 - 1 + 1 ) ) + 1; 
+            do
+            {
+                // Génération d'un entier aléatoire compris dans [0,4[ puis incrémentation pour obtenir [1,5[ (soit [1,4])
+                rand = r.nextInt(4) + 1;
+
+                // Booléen à vrai si toutes les valeurs sont utilisées
+                all = (val1 && val2 && val3 && val4);
+
+                // Booléen à vrai s'il existe un conflit (exemple : aléatoire tiré à 1 mais valeur 1 déjà utilisée) et qu'il reste des nombres non utilisés
+                retry = !((rand == 1 && !val1) | (rand == 2 && !val2) | (rand == 3 && !val3) | (rand == 4 && !val4) | all);
+
+                // Actualisation de la liste des valeurs utiliséesS
+                if (rand == 1) val1 = true;
+                if (rand == 2) val2 = true;
+                if (rand == 3) val3 = true;
+                if (rand == 4) val4 = true;
+            } while (retry);
+
+            // Choix aléatoire de la direction de l'IA et mouvement dans cette direction
+            switch (rand)
+            {
+                case 1:
+                    val1 = true;
+                    update = this.moveUp();
+                    break;
+                case 2:
+                    val2 = true;
+                    update = this.moveDown();
+                    break;
+                case 3:
+                    val3 = true;
+                    update = this.moveLeft();
+                    break;
+                case 4:
+                    val4 = true;
+                    update = this.moveRight();
+                    break;
+                default:
+                    break;
+            }
         }
         
+        // Ajout d'une case à la grille
         this.addCase();
         
+        // Notification de la (non-)modification de la grille
         return update;
     }
-    
-    
     
     public boolean helpForAll()
     {
