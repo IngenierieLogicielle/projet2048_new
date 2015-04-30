@@ -13,14 +13,12 @@ public class Grid
     private int height;
     private int width;
     private Case[][] cases;
-    private boolean hasEmpty;
 
     public Grid()
     {
         height = 4;
 	width = 4;
 	cases = new Case[height][width];
-        hasEmpty = true;
     }
 	
     public Grid(int h,int w)
@@ -28,15 +26,13 @@ public class Grid
         height = h;
 	width = w;
 	cases = new Case[height][width];
-        hasEmpty = true;
     }
 	
-    public Grid(Case[][] c, boolean emp)
+    public Grid(Case[][] c)
     {
 	height = c.length;
 	width = c[c.length].length;
 	cases = c;
-        hasEmpty = emp;
     }
 	
     public void setHeight(int h)
@@ -69,32 +65,6 @@ public class Grid
 	return cases;
     }
 	
-    public void hasAtLeastOneEmptyCase(boolean emp)
-    {
-        hasEmpty = emp;
-    }
-    
-    public boolean hasAtLeastOneEmptyCase()
-    {
-        return hasEmpty;
-    }
-    
-    public boolean checkEmptyCases()
-    {
-        for (int y=0; y<cases.length; y++)
-    	{
-            for (int x=0; x<cases[y].length; x++)
-            {
-		if (cases[y][x].getValue() == 0);
-                {
-                    return true;
-                }
-            }
-	}
-        
-        return false;
-    }
-    
     public static int customRandom(int range)
     {
     	int random = (int)(Math.random()*10)%range;
@@ -462,22 +432,8 @@ public class Grid
 		// *** DEBUG ***
 		System.out.println("H");
         
-                // *** DEBUG ***
-		System.out.println("Ajout d'une case à la grille");
-                
-		// Ajout d'une case à la grille s'il reste des cases vides
-                if (checkEmptyCases())
-                {
-                    this.addCase();
-                }
-                else
-                {
-                    //System.exit(404);
-                    System.out.println("Place insuffisante");
-                }
-        
-                // *** DEBUG ***
-		System.out.println("Fin de helpForOne()");
+		// Ajout d'une case à la grille
+        this.addCase();
         
         // Notification de la (non-)modification de la grille
         return update;
@@ -499,9 +455,6 @@ public class Grid
             this.displayGrid();
         } while (action);
         //} while (action && !value2048);
-        
-        // *** DEBUG ***
-	System.out.println("Fin de helpForAll()");
         
         return action;
     }

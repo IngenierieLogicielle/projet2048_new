@@ -59,7 +59,7 @@ public class Game
         // Lancement du jeu : 
         // répétition de la demande d'une touche et de l'éecution de l'action tant qu'on ne souhaite pas quitter
         // ----------------
-        System.out.println("+++ DEBUT +++"); //System.exit(666);
+        System.out.println("+++"); //System.exit(666);
 	while (!end)
 	{
             System.out.println("Prochain deplacement : ");
@@ -136,6 +136,6 @@ public class Game
                     break;
             }
 	}
-        System.out.println("+++ FIN +++");
+        System.out.println("+++");
     }
 }
