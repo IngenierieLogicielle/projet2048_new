@@ -46,7 +46,7 @@
                   <Pane id="case33" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <Button id="start" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButtonAction" style="-fx-background-radius: blue;" text="Demarrer la partie" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+            <Button id="start" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="" style="-fx-background-radius: blue;" text="Demarrer la partie" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
                <textFill>
                   <LinearGradient endX="0.1476190476190476" endY="0.9666666666666667" startX="0.14761904761904762" startY="0.3761904761904762">
                      <stops>
