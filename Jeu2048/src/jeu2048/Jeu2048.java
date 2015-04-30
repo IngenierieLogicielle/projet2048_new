@@ -13,8 +13,9 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author JDzim
+ * @author Joan
  */
+
 public class Jeu2048 extends Application {
     
     @Override
@@ -22,6 +23,7 @@ public class Jeu2048 extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
+        boolean add = scene.getStylesheets().add("css/styles.css");
         
         stage.setScene(scene);
         stage.show();
@@ -35,3 +37,4 @@ public class Jeu2048 extends Application {
     }
     
 }
+
