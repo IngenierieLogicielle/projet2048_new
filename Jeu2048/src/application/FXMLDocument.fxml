@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="660.0" prefWidth="600.0">
+         <children>
+            <GridPane id="grille" gridLinesVisible="true" layoutX="126.0" layoutY="200.0" prefHeight="328.0" prefWidth="338.0" style="-fx-background-color: grey;">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="79.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="0.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="86.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="81.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane id="case10" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="1" />
+                  <Pane id="case00" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" />
+                  <Pane id="CASE20" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="2" />
+                  <Pane id="case30" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="3" />
+                  <Pane id="case01" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.rowIndex="1" />
+                  <Pane id="case02" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.rowIndex="2" />
+                  <Pane id="case03" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.rowIndex="3" />
+                  <Pane id="case11" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Pane id="case12" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Pane id="case13" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Pane id="cae21" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Pane id="case31" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Pane id="case22" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Pane id="case32" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Pane id="case23" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Pane id="case33" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <Button id="start" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-radius: blue;" text="Demarrer la partie" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+               <textFill>
+                  <LinearGradient endX="0.1476190476190476" endY="0.9666666666666667" startX="0.14761904761904762" startY="0.3761904761904762">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill></Button>
+            <Pane layoutX="434.0" layoutY="27.0" mouseTransparent="true" opacity="0.6" prefHeight="90.0" prefWidth="124.0" style="-fx-background-color: blue;">
+               <children>
+                  <Label id="mouvement" layoutX="24.0" layoutY="28.0" prefHeight="17.0" prefWidth="100.0" text="Deplacements" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="0.06666666666666665" endY="1.0" startX="0.0380952380952381" startY="0.01904761904761905">
+                           <stops>
+                              <Stop color="#f8f0f00f" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill></Label>
+                  <Label id="moves" layoutX="59.0" layoutY="59.0" text="0" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="27.0" opacity="0.6" prefHeight="90.0" prefWidth="124.0" style="-fx-background-color: blue;">
+               <children>
+                  <Label layoutX="22.0" layoutY="28.0" text="Nom du joueur" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="0.06666666666666665" endY="1.0" startX="0.0380952380952381">
+                           <stops>
+                              <Stop color="#f8f0f00f" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <TextArea id="nom_joueur" layoutX="19.0" layoutY="45.0" prefHeight="36.0" prefWidth="86.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="26.0" layoutY="543.0" opacity="0.6" prefHeight="103.0" prefWidth="142.0" style="-fx-background-color: blue;">
+               <children>
+                  <Label layoutX="34.0" layoutY="26.0" text="Score joueur">
+                     <textFill>
+                        <LinearGradient endX="0.3952380952380952" endY="0.9666666666666667" startX="0.19523809523809524" startY="0.1380952380952381">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="60.0" text="0" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Button layoutX="239.0" layoutY="39.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Mode solo" />
+            <Button layoutX="239.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Mode coop" />
+            <Button layoutX="239.0" layoutY="89.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Mode compet" />
+            <Button layoutX="239.0" layoutY="114.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Charger partie" />
+            <Button layoutX="239.0" layoutY="139.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Sauvegarder partie" />
+            <Button layoutX="239.0" layoutY="164.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Sauvegarder score" />
+            <Pane layoutX="434.0" layoutY="543.0" opacity="0.6" prefHeight="103.0" prefWidth="142.0" style="-fx-background-color: blue;">
+               <children>
+                  <Label layoutX="24.0" layoutY="24.0" text="Score adversaire">
+                     <textFill>
+                        <LinearGradient endX="0.3952380952380952" endY="0.9666666666666667" startX="0.19523809523809524" startY="0.1380952380952381">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Label layoutX="67.0" layoutY="60.0" text="0" textFill="WHITE" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
