@@ -9,10 +9,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<!--AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/2" fx:controller="application.FXMLDocumentController"-->
+<AnchorPane prefHeight="660.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FXMLDocumentController">
    <children>
       <Pane prefHeight="660.0" prefWidth="600.0">
-         <children>
+        <children>
             <GridPane id="grille" gridLinesVisible="true" layoutX="126.0" layoutY="200.0" prefHeight="328.0" prefWidth="338.0" style="-fx-background-color: grey;">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="10.0" prefWidth="79.0" />

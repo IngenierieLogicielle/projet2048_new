@@ -7,8 +7,6 @@ package reseau;
  * @author Joan BELO, Matthieu BURTIN, Joseph DZIMBALKA
  */
 import java.net.*;
-import java.util.*;
-import java.lang.*;
 import java.io.*;
 import java.sql.*;
 
